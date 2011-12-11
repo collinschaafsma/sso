@@ -1,5 +1,11 @@
 module Ql
+
   class Sso < Sinatra::Base
+
+    use Rack::Session::Cookie
+    use OmniAuth::Builder do
+      provider :identity
+    end
 
     before do
       content_type :json
@@ -30,4 +36,5 @@ module Ql
     end
 
   end
+
 end
