@@ -1,16 +1,16 @@
-defaults: &defaults
+development:
+  host: 127.0.0.1
+  port: 27017
+  database: sso_development
+
+test:
+  host: 127.0.0.1
+  port: 27017
+  database: sso_test
+
+production:
   host: <%= ENV['MONGOID_HOST'] %>
   port: <%= ENV['MONGOID_PORT'] %>
   username: <%= ENV['MONGOID_USER'] %>
   password: <%= ENV['MONGOID_PASS'] %>
   database: <%= ENV['MONGOID_DATABASE'] %>
-
-
-development:
-  <<: *defaults
-
-test:
-  <<: *defaults
-
-production:
-  <<: *defaults
