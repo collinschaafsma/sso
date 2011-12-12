@@ -23,6 +23,14 @@ module Ql
       { :application_name => 'SSO' }.to_json
     end
 
+    post '/auth/:provider/callback' do
+      auth = request.env["omniauth.auth"]
+      user = User.from_omniauth(auth)
+      session[:user_id] = user.id
+
+      {:user => {:name => user.name}}.to_json
+    end
+
     #configure do
       # set app specific settings
       # for example different view folders

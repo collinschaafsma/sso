@@ -8,7 +8,7 @@ class User
   attr_accessible :provider, :uid, :name, :email
 
   def self.from_omniauth(auth)
-    find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
+    first( conditions: { provider: auth['provider'], uid: auth['uid'] } ) || create_with_omniauth(auth)
   end
 
   def self.create_with_omniauth(auth)
