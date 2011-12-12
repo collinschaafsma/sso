@@ -6,6 +6,7 @@ gem 'mongoid'
 gem 'bson_ext'
 gem 'omniauth'
 gem 'omniauth-identity'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :test do
   gem 'rspec'

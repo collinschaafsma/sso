@@ -4,10 +4,18 @@ module Ql
 
     use Rack::Session::Cookie
     use OmniAuth::Builder do
-      provider :identity
+      provider :identity, on_failed_registration: lambda { |env|
+        identity = env['omniauth.identity']
+        [
+          200,
+          {"Content-Type" => 'application/json'},
+          [{:errors => identity.errors}.to_json]
+        ]
+      }
     end
 
     before do
+      p params
       content_type :json
     end
 
