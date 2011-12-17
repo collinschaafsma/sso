@@ -5,7 +5,7 @@ gem 'json'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'omniauth'
-gem 'omniauth-identity'
+gem 'omniauth-simple_identity', :git => 'git@github.com:collinschaafsma/omniauth-simple_identity.git'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :test do

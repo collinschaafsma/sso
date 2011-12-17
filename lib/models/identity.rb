@@ -1,7 +1,7 @@
 class Identity
 
   include Mongoid::Document
-  include OmniAuth::Identity::Models::Mongoid
+  include OmniAuth::SimpleIdentity::Models::Mongoid
 
   field :email, type: String
   field :name, type: String
